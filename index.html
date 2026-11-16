@@ -29,7 +29,6 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  /* антидёрг */
   html:not(.ready) .anim{animation:none !important;opacity:0}
   html.ready .anim{opacity:1}
   html:not(.ready) .blob{animation:none !important}
@@ -63,7 +62,7 @@
   .deck{position:relative;z-index:10;height:100vh;width:100vw}
   .slide{
     position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
-    padding:6vh 7vw 10vh;opacity:0;visibility:hidden;pointer-events:none;
+    padding:6vh 7vw 8vh;opacity:0;visibility:hidden;pointer-events:none;
     transition:opacity .55s ease,visibility .55s;overflow-y:auto;
   }
   .slide.active{opacity:1;visibility:visible;pointer-events:auto}
@@ -123,9 +122,9 @@
   .concept-block p{font-size:clamp(14px,1.4vw,18px);line-height:1.45;color:#dbe3ee}
 
   /* ===== ТИП 6: ВЫВОД ===== */
-  .takeaway{margin-top:24px;padding:20px 24px;border-radius:16px;max-width:1000px;background:linear-gradient(120deg,rgba(255,207,77,.12),rgba(90,169,255,.08));border:1px solid rgba(255,207,77,.3);font-size:clamp(15px,1.6vw,20px);line-height:1.4;backdrop-filter:blur(14px);position:relative;overflow:hidden}
+  .takeaway{margin-top:20px;padding:16px 22px;border-radius:16px;max-width:1000px;background:linear-gradient(120deg,rgba(255,207,77,.12),rgba(90,169,255,.08));border:1px solid rgba(255,207,77,.3);font-size:clamp(15px,1.5vw,19px);line-height:1.4;backdrop-filter:blur(14px);position:relative;overflow:hidden}
   .takeaway::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold)}
-  .takeaway span{display:block;color:var(--gold);font-weight:800;text-transform:uppercase;font-size:.65em;letter-spacing:.15em;margin-bottom:6px}
+  .takeaway span{display:block;color:var(--gold);font-weight:800;text-transform:uppercase;font-size:.65em;letter-spacing:.15em;margin-bottom:4px}
 
   /* ===== ТИП 7: РИСКИ (АККОРДЕОН) ===== */
   .acc{max-width:1000px;display:flex;flex-direction:column;gap:10px;margin-top:10px}
@@ -148,17 +147,17 @@
   .tl-item .tx{font-size:clamp(13px,1.2vw,16px);line-height:1.45;color:#c6d0de}
 
   /* ===== НАВИГАЦИЯ ===== */
-  .nav{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:8px}
+  .nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:8px}
   .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:.25s;border:none;padding:0}
   .dot.on{background:var(--gold);box-shadow:0 0 10px var(--gold);transform:scale(1.4)}
   .arrows{display:flex;gap:8px;margin-left:14px}
   .arrows button{width:40px;height:40px;border-radius:12px;cursor:pointer;background:var(--glass);border:1px solid var(--stroke);color:var(--text);font-size:16px;backdrop-filter:blur(12px);transition:.25s}
   .arrows button:hover{border-color:var(--gold);color:var(--gold)}
   .arrows button:disabled{opacity:.25;cursor:not-allowed}
-  .hint{position:fixed;bottom:30px;right:32px;font-size:11px;letter-spacing:.1em;color:var(--muted);z-index:60;text-transform:uppercase}
+  .hint{position:fixed;bottom:24px;right:32px;font-size:11px;letter-spacing:.1em;color:var(--muted);z-index:60;text-transform:uppercase}
 
   @media (max-width:820px){
-    .slide{padding:8vh 6vw 12vh}
+    .slide{padding:8vh 6vw 10vh}
     .grid-cards,.bento,.concept{grid-template-columns:1fr}
     .hint,.brand{display:none}
   }
@@ -185,7 +184,7 @@
     <h1 class="anim">Кадровая стратегия<br><span class="hl">Тульской области</span></h1>
     <p class="sub anim">От прогноза потребности — к обеспечению экономики квалифицированными кадрами</p>
     <div class="speaker anim">
-      <div class="name">Архипова Наталия Александровна</div>
+      <div class="name">Архипова Наталья Александровна</div>
       <div class="role">Первый заместитель Губернатора Тульской области — председатель Правительства Тульской области</div>
     </div>
   </section>
@@ -214,7 +213,8 @@
       <li class="hasnum anim"><span class="num">01</span>≈793,5 тыс. человек — рабочая сила (2025)</li>
       <li class="hasnum anim"><span class="num">02</span>1,5% общая безработица (2025); 0,1% зарегистрированная (01.01.2026)</li>
       <li class="hasnum anim"><span class="num">03</span>25,0 тыс. вакансий на «Работе России» (ноябрь 2026)</li>
-      <li class="hasnum anim"><span class="num">04</span>43,4 года средний возраст рабочей силы; -40,0 тыс. сальдо межрегиональной трудовой миграции (2024)</li>
+      <li class="hasnum anim"><span class="num">04</span>43,4 года средний возраст рабочей силы</li>
+      <li class="hasnum anim"><span class="num">05</span>-42,6 тыс. сальдо межрегиональной трудовой миграции (2024)</li>
     </ul>
     <div class="takeaway anim"><span>Вывод</span>Только наймом дефицит не закрыть — необходим опережающий рост производительности.</div>
   </section>
@@ -301,14 +301,14 @@
   <section class="slide">
     <div class="kicker anim">Слайд 10 · Управление и мониторинг</div>
     <h1 class="anim">Единый центр решений и <span class="hl">ответственность за результат</span></h1>
-    <div class="grid-cards" style="grid-template-columns:repeat(2,1fr);max-width:950px">
-      <div class="card anim" style="border-color:rgba(255,207,77,.3)"><div class="l"><b>Предлагаемый межведомственный координационный орган</b><br>при Правительстве области</div></div>
-      <div class="card anim"><div class="l"><b>Владельцы направлений:</b><br>ОИВ в сфере труда и занятости, образования, экономики, промышленности, бизнеса и иные отраслевые министерства</div></div>
-      <div class="card anim"><div class="l"><b>Работодатели и отраслевые объединения</b><br>подтверждают спрос и участвуют в подготовке</div></div>
-      <div class="card anim"><div class="l"><b>Информационная панель СЦ:</b><br>кадровый дефицит, выработка на работника, эффект модернизации и подготовка кадров</div></div>
-      <div class="card anim" style="grid-column:span 2"><div class="l"><b>Муниципальный срез</b><br>раннее предупреждение о дефиците и корректирующие решения</div></div>
+    <div class="grid-cards" style="grid-template-columns:repeat(2,1fr);max-width:950px;gap:12px;margin-top:6px">
+      <div class="card anim" style="border-color:rgba(255,207,77,.3);padding:16px 20px"><div class="l"><b>Предлагаемый межведомственный координационный орган</b><br>при Правительстве области</div></div>
+      <div class="card anim" style="padding:16px 20px"><div class="l"><b>Владельцы направлений:</b><br>ОИВ в сфере труда и занятости, образования, экономики, промышленности, бизнеса и иные отраслевые министерства</div></div>
+      <div class="card anim" style="padding:16px 20px"><div class="l"><b>Работодатели и отраслевые объединения</b><br>подтверждают спрос и участвуют в подготовке</div></div>
+      <div class="card anim" style="padding:16px 20px"><div class="l"><b>Информационная панель СЦ:</b><br>кадровый дефицит, выработка на работника, эффект модернизации и подготовка кадров</div></div>
+      <div class="card anim" style="grid-column:span 2;padding:16px 20px"><div class="l"><b>Муниципальный срез</b><br>раннее предупреждение о дефиците и корректирующие решения</div></div>
     </div>
-    <div class="takeaway anim"><span>По поручению Губернатора</span>Создана Рабочая группа по разработке комплексных мероприятий по развитию рынка труда, созданию условий для занятости на территории Тульской области» — единый центр кадровый решений</div>
+    <div class="takeaway anim" style="margin-top:12px;padding:12px 18px"><span>По поручению Губернатора</span>Создана Рабочая группа по разработке комплексных мероприятий по развитию рынка труда, созданию условий для занятости на территории Тульской области» — единый центр кадровый решений</div>
   </section>
 
   <!-- 11 · РИСКИ -->
@@ -346,7 +346,7 @@
       <li class="hasnum anim"><span class="num">31-60</span>дней: сверить прогноз с крупнейшими работодателями и инвестициями, привлечь к участию в прогнозе широкий пул работодателей</li>
     </ul>
     <div class="takeaway anim"><span>Первый результат</span>Карта дефицитных профессий, перечень процессов с потенциалом снижения трудоемкости и распределение ответственности.</div>
-    <div class="takeaway anim" style="background:linear-gradient(120deg,rgba(90,169,255,.12),rgba(255,207,77,.08));border-color:rgba(90,169,255,.3)"><span>Главный итог</span>Экономика растет не только за счет новых работников, но и за счет большей отдачи от каждого рабочего места.</div>
+    <div class="takeaway anim" style="background:linear-gradient(120deg,rgba(90,169,255,.12),rgba(255,207,77,.08));border-color:rgba(90,169,255,.3);margin-top:10px"><span>Главный итог</span>Экономика растет не только за счет новых работников, но и за счет большей отдачи от каждого рабочего места.</div>
   </section>
 
 </div>
@@ -371,7 +371,6 @@
   let i=0;
   let ready=false;
 
-  // точки
   slides.forEach((_,idx)=>{
     const d=document.createElement('button');
     d.className='dot'+(idx===0?' on':'');
@@ -381,9 +380,6 @@
   const dots=[...dotsWrap.children];
   const pad=n=>String(n).padStart(2,'0');
 
-  function animateBars(){} // заглушка, если понадобятся бары
-
-  // аккордеон
   document.querySelectorAll('.acc-head').forEach(h=>{
     h.addEventListener('click',()=>{
       const item=h.parentElement;
