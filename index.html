@@ -221,6 +221,322 @@
     .speaker{align-self:center}
     .hint,.brand{display:none}
   }
+    /* ===== СЛАЙД 1 (ТОЧНАЯ КАЛЬКА) ===== */
+  .hero{
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding:4vh 5vw 3vh; min-height:100vh; gap:20px;
+  }
+  
+  /* Верхняя плашка */
+  .hero-top{display:flex; justify-content:space-between; align-items:center; width:100%; border-bottom:1px solid var(--stroke); padding-bottom:12px;}
+  .hero-top-left{display:flex; align-items:center; gap:12px;}
+  .red-line{display:inline-block; width:4px; height:18px; background:var(--red); border-radius:2px;}
+  .top-title{font-family:'Unbounded',sans-serif; font-size:11px; font-weight:700; letter-spacing:.15em; color:var(--text); text-transform:uppercase;}
+  .hero-top-right{display:flex; align-items:center; gap:20px;}
+  .top-years{font-family:'Unbounded',sans-serif; font-size:13px; font-weight:700; color:var(--muted);}
+  .top-gerb{height:36px; width:auto; object-fit:contain;}
+
+  /* Основной блок */
+  .hero-main{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; flex-grow:1;}
+  .hero-text{display:flex; flex-direction:column; justify-content:center;}
+  .hero h1{font-size:clamp(32px,4.5vw,64px); line-height:1.1; margin-bottom:24px; max-width:100%; text-transform:uppercase; font-weight:900;}
+  .hero-divider{width:80px; height:4px; background:var(--red); margin-bottom:24px; border-radius:2px;}
+  .hero .sub{font-size:clamp(16px,1.8vw,24px); line-height:1.4; color:var(--text); margin-bottom:0; max-width:90%;}
+  
+  /* Карта */
+  .hero-map{width:100%; height:100%; max-height:55vh; display:flex; align-items:center; justify-content:center; position:relative;}
+  .hero-map img{width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 10px 30px rgba(0,0,0,.5));}
+  
+  /* Низ */
+  .hero-bottom{display:flex; justify-content:space-between; align-items:flex-end; width:100%; border-top:1px solid var(--stroke); padding-top:12px;}
+  .speaker{display:flex; flex-direction:column; gap:4px;}
+  .speaker .name{font-family:'Manrope',sans-serif; font-size:clamp(13px,1.2vw,16px); font-weight:600; color:var(--muted);}
+  .speaker .role{font-family:'Manrope',sans-serif; font-size:clamp(11px,1.1vw,14px); font-weight:400; color:var(--muted); max-width:600px; line-height:1.4;}
+  .footer-note{font-family:'Manrope',sans-serif; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.1em;}
+
+  /* Для мобилок */
+  @media (max-width: 900px){
+    .hero-main{grid-template-columns:1fr; gap:20px;}
+    .hero-map{max-height:35vh;}
+    .hero-bottom{flex-direction:column; align-items:flex-start; gap:12px;}
+  }
+    /* ===== СЛАЙД 2 ===== */
+  .slide2-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 1.2fr 1fr;
+    gap: 24px;
+    max-width: 1300px;
+    margin: 6vh auto 0;
+    align-items: stretch;
+    height: 84vh;
+  }
+  .col-left, .col-center, .col-right{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+  }
+  
+  /* Карточки */
+  .s2-card{
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--stroke);
+    border-radius: 12px;
+    padding: 16px 20px;
+    backdrop-filter: blur(10px);
+  }
+  .s2-val{
+    font-family:'Unbounded', sans-serif;
+    font-size: clamp(18px, 1.8vw, 24px);
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .s2-lbl{
+    font-size: clamp(13px, 1.2vw, 16px);
+    color: #dbe3ee;
+    line-height: 1.3;
+  }
+  
+  /* Графики */
+  .s2-chart-box{
+    background: rgba(0,0,0,.2);
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 12px;
+    padding: 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .line-chart{
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+  }
+  
+  /* Анимация линий */
+  .draw-line {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+  }
+  .slide.active .draw-line {
+    animation: draw 1.5s ease forwards;
+  }
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .s2-legend{
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.3;
+  }
+  .leg-line{
+    display:inline-block;
+    width: 14px;
+    height: 3px;
+    background: var(--blue);
+    border-radius: 2px;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  /* Заголовки в блоках с графиками */
+  .s2-title{
+    font-size: clamp(13px, 1.3vw, 16px);
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  @media (max-height: 850px){
+    .slide2-grid { gap: 12px; height: 82vh; }
+    .s2-card { padding: 10px 14px; }
+    .s2-val { font-size: 16px; }
+    .s2-lbl { font-size: 12px; }
+    .line-chart { min-height: 70px; }
+    .s2-legend { font-size: 9px; }
+    .s2-title { font-size: 11px; }
+    .s2-footer { font-size: 9px !important; }
+  }
+  @media (max-width: 1000px){
+    .slide2-grid { grid-template-columns: 1fr; height: auto; margin-top: 8vh; }
+  }
+      /* ===== СЛАЙД 3 ===== */
+  .slide3-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 8vh;
+  }
+  .s3-header h1{
+    font-size: clamp(24px, 3vw, 42px);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .s3-header .sub{
+    font-size: clamp(13px, 1.3vw, 16px);
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  
+  .s3-body{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 24px;
+    align-items: stretch;
+    flex-grow: 1;
+    margin-bottom: 16px;
+    min-height: 0; /* важно для flex */
+  }
+  
+  /* Левая колонка: списки */
+  .s3-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+  .s3-item{
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--stroke);
+    border-radius: 10px;
+    padding: 14px 18px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: transform .3s, border-color .3s;
+  }
+  .s3-item:hover{ transform: translateX(6px); border-color: rgba(90,169,255,.4); }
+  .s3-item::before{
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--blue); border-radius: 10px 0 0 10px;
+  }
+  .s3-num{
+    font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 900;
+    color: var(--gold); margin-right: 14px; opacity: 0.9;
+  }
+  .s3-text{ font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); }
+
+  /* Правая колонка: график */
+  .s3-chart-wrap{
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--stroke);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .s3-chart-title{
+    font-size: 11px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: .05em; margin-bottom: 16px;
+  }
+  .s3-chart{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-grow: 1;       /* растягиваем на всю высоту */
+    gap: 16px;
+    padding-bottom: 40px; /* место под подписи */
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    position: relative;
+  }
+  .s3-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    height: 100%;
+    position: relative;
+  }
+      .s3-bars{
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 40px;
+    min-height: 160px;
+  }
+  .s3-bar{
+    width: 14px;
+    height: 0;
+    border-radius: 3px 3px 0 0;
+    transition: height .3s ease;
+    min-height: 2px;
+  }
+  .s3-bar.rf{ background: var(--blue); }
+  .s3-bar.to{ background: var(--red); }
+  
+  .s3-vals{
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    color: var(--text);
+    margin-bottom: 6px;
+    white-space: nowrap;
+  }
+  .s3-lbl{
+    font-size: 11px; text-align: center; color: var(--muted);
+    line-height: 1.3;
+    position: absolute;
+    bottom: -36px;
+    width: 100%;
+  }
+  .s3-sublegend{
+    display: flex;
+    margin-top: 6px;
+    gap: 8px;
+  }
+  .s3-sublegend-item{
+    font-size: 10px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.3;
+    padding-top: 4px;
+  }
+  .s3-chart-legend{
+    display: flex; gap: 16px; justify-content: flex-end;
+    margin-top: 8px; font-size: 11px; color: var(--muted);
+  }
+  .s3-chart-legend span{ display: flex; align-items: center; gap: 6px; }
+  .dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .dot.rf { background: var(--blue); }
+  .dot.to { background: var(--red); }
+
+  /* Вывод */
+  .s3-footer{
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--stroke);
+    border-radius: 8px; padding: 12px 20px;
+  }
+  .s3-footer-line{ width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; }
+  .s3-footer-text{ font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); }
+  .s3-footer-text b{ color: var(--gold); }
+
+  @media (max-width: 900px){
+    .s3-body { grid-template-columns: 1fr; }
+  }
+/* === СЛАЙД 4: ТРЕНДЫ И ВЫЗОВЫ === */ .slide4-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide4-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide4-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Вызовы */ .slide4-challenges { display: flex; flex-direction: column; gap: 16px; } .challenge-item { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--stroke); border-radius: 12px; padding: 14px 18px; backdrop-filter: blur(10px); transition: transform .3s, border-color .3s; } .challenge-item:hover { transform: translateX(6px); border-color: rgba(90,169,255,.4); } .challenge-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 10px 0 0 10px; } .challenge-num { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 900; color: var(--gold); margin-right: 14px; opacity: 0.9; } .challenge-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); } /* Тренды */ .trends-list { display: flex; flex-direction: column; gap: 16px; } .trend-item { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--stroke); border-radius: 12px; padding: 14px 18px; backdrop-filter: blur(10px); transition: transform .3s, border-color .3s; } .trend-item:hover { transform: translateX(6px); border-color: rgba(255,207,77,.4); } .trend-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--red); border-radius: 10px 0 0 10px; } .trend-num { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 900; color: var(--gold); margin-right: 14px; opacity: 0.9; } .trend-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); } /* Пирамиды */ .slide4-pyramids { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 32px; } .pyramid-title { font-size: clamp(13px, 1.3vw, 16px); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; } .pyramids-wrapper { display: flex; gap: 40px; align-items: center; } .pyramid { position: relative; width: 180px; height: 420px; display: flex; flex-direction: column; justify-content: space-between; } .pyramid-label { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 700; color: var(--text); } .pyramid-bars { display: flex; flex-direction: column; gap: 2px; height: 100%; } .pyramid-bars .bar { height: 6px; border-radius: 3px; transition: width .6s ease; } .pyramid-bars .bar.f { background: var(--red); } .pyramid-bars .bar.m { background: var(--blue); } /* Легенда */ .pyramid-legend { display: flex; gap: 16px; font-size: 11px; color: var(--muted); } .legend-item { display: flex; align-items: center; gap: 6px; } .legend-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; } .legend-f { background: var(--red); } .legend-m { background: var(--blue); } /* Вывод */ .slide4-footer { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; margin: 24px auto 0; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide4-content { grid-template-columns: 1fr; gap: 24px; } .slide4-pyramids { flex-direction: column; align-items: stretch; } .pyramids-wrapper { flex-direction: column; gap: 32px; } }
+/* === СЛАЙД 5: КОНЦЕПЦИЯ КАДРОВОЙ СТРАТЕГИИ === */ .slide5-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide5-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide5-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide5-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide5-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 220px; } .slide5-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide5-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); } /* Вывод */ .slide5-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide5-grid { grid-template-columns: 1fr; gap: 20px; } .slide5-card { min-height: 180px; padding: 20px; } .slide5-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
+/* === СЛАЙД 6: СИСТЕМНАЯ ЗАДАЧА 1 === */ .slide6-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide6-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide6-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide6-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide6-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 220px; } .slide6-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide6-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); } /* График */ .slide6-chart { width: 100%; max-width: 1000px; margin-bottom: 32px; } .chart-title { font-size: clamp(14px, 1.4vw, 18px); color: var(--text); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; } .chart-subtitle { font-size: clamp(12px, 1.2vw, 15px); color: var(--muted); margin-bottom: 16px; } .chart-container { position: relative; height: 400px; } .chart-svg { width: 100%; height: 100%; } .bar-label { opacity: 0; transform: translateY(-10px); transition: opacity .3s ease, transform .3s ease; } .bar.active .bar-label { opacity: 1; transform: translateY(0); } .area-label { font-size: 10px; fill: var(--text); opacity: 0; transition: opacity .3s ease; } .area.active .area-label { opacity: 1; } /* Легенда */ .legend-dot { width: 12px; height: 12px; border-radius: 2px; } .legend-label { font-size: 11px; } /* Вывод */ .slide6-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide6-grid { grid-template-columns: 1fr; gap: 20px; } .slide6-card { min-height: 180px; padding: 20px; } .slide6-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
+/* === СЛАЙД 7: СИСТЕМНАЯ ЗАДАЧА 2 === */ .slide7-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide7-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide7-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide7-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide7-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 220px; } .slide7-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide7-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); display: flex; flex-direction: column; gap: 6px; } .card-text b { color: var(--gold); } /* Вывод */ .slide7-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide7-grid { grid-template-columns: 1fr; gap: 20px; } .slide7-card { min-height: 180px; padding: 20px; } .slide7-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
+/* === СЛАЙД 8: СИСТЕМНАЯ ЗАДАЧА 3 === */ .slide8-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide8-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide8-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide8-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide8-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 180px; } .slide8-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide8-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); display: flex; flex-direction: column; gap: 6px; } .card-text b { color: var(--gold); } /* Вывод */ .slide8-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide8-grid { grid-template-columns: 1fr; gap: 20px; } .slide8-card { min-height: 160px; padding: 20px; } .slide8-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
+/* === СЛАЙД 9: СИСТЕМНАЯ ЗАДАЧА 4 === */ .slide9-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide9-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide9-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide9-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide9-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 220px; } .slide9-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide9-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); display: flex; flex-direction: column; gap: 6px; } .card-text b { color: var(--gold); } /* Результат */ .slide9-result { width: 100%; max-width: 1000px; margin-bottom: 32px; padding: 24px; background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; backdrop-filter: blur(14px); display: flex; flex-direction: column; gap: 8px; } .result-title { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--text); text-transform: uppercase; letter-spacing: .05em; } .result-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); } /* Вывод */ .slide9-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide9-grid { grid-template-columns: 1fr; gap: 20px; } .slide9-card { min-height: 180px; padding: 20px; } .slide9-result { padding: 20px; } .slide9-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
+/* === СЛАЙД 10: УПРАВЛЕНИЕ И МОНИТОРИНГ === */ .slide10-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide10-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide10-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide10-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide10-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 220px; } .slide10-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide10-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); display: flex; flex-direction: column; gap: 6px; } .card-text b { color: var(--gold); } /* Вывод */ .slide10-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide10-grid { grid-template-columns: 1fr; gap: 20px; } .slide10-card { min-height: 180px; padding: 20px; } .slide10-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
+/* === СЛАЙД 11: РИСКИ И МЕРЫ РЕАГИРОВАНИЯ === */ .slide11-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide11-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide11-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide11-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide11-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 220px; } .slide11-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide11-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); display: flex; flex-direction: column; gap: 6px; } .card-text b { color: var(--gold); } /* Вывод */ .slide11-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide11-grid { grid-template-columns: 1fr; gap: 20px; } .slide11-card { min-height: 180px; padding: 20px; } .slide11-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
+/* === СЛАЙД 12: ДОРОЖНАЯ КАРТА === */ .slide12-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide12-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide12-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide12-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide12-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 220px; } .slide12-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide12-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); display: flex; flex-direction: column; gap: 6px; } .card-text b { color: var(--gold); } /* Вывод */ .slide12-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide12-grid { grid-template-columns: 1fr; gap: 20px; } .slide12-card { min-height: 180px; padding: 20px; } .slide12-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
+/* === СЛАЙД 13: БЛИЖАЙШИЕ ШАГИ И РЕЗУЛЬТАТ === */ .slide13-content { display: flex; flex-direction: column; align-items: center; padding: 6vh 5vw 3vh; min-height: 100vh; } /* Заголовки */ .slide13-content h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4.5vw, 64px); line-height: 1.1; margin-bottom: 24px; text-transform: uppercase; font-weight: 900; } .slide13-content .sub { font-size: clamp(16px, 1.8vw, 24px); line-height: 1.4; color: var(--text); margin-bottom: 32px; max-width: 90%; } /* Сетка карточек */ .slide13-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; max-width: 1200px; margin-bottom: 32px; } /* Карточки */ .slide13-card { background: var(--glass); border: 1px solid var(--stroke); border-radius: 16px; padding: 24px; backdrop-filter: blur(14px); position: relative; overflow: hidden; transition: transform .35s, border-color .35s; display: flex; flex-direction: column; justify-content: center; min-height: 220px; } .slide13-card:hover { transform: translateY(-4px); border-color: rgba(255,207,77,.45); } .slide13-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue); border-radius: 0 4px 4px 0; } /* Номер карточки */ .card-num { font-family: 'Unbounded', sans-serif; font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; color: var(--gold); margin-bottom: 8px; } /* Заголовок внутри карточки */ .card-title { font-family: 'Unbounded', sans-serif; font-size: clamp(16px, 1.6vw, 22px); font-weight: 900; color: var(--text); margin-bottom: 12px; } /* Текст карточки */ .card-text { font-size: clamp(14px, 1.4vw, 17px); line-height: 1.4; color: var(--text); display: flex; flex-direction: column; gap: 6px; } .card-text b { color: var(--gold); } /* Вывод */ .slide13-footer { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,.03); border: 1px solid var(--stroke); border-radius: 8px; padding: 12px 20px; max-width: 1000px; width: 100%; } .footer-line { width: 4px; height: 22px; background: var(--red); border-radius: 2px; flex-shrink: 0; } .footer-text { font-size: clamp(13px, 1.3vw, 15px); line-height: 1.4; color: var(--text); } .footer-text b { color: var(--gold); } /* Адаптив */ @media (max-width: 900px) { .slide13-grid { grid-template-columns: 1fr; gap: 20px; } .slide13-card { min-height: 180px; padding: 20px; } .slide13-footer { flex-direction: column; align-items: flex-start; gap: 12px; } }
 </style>
 </head>
 <body>
@@ -238,298 +554,325 @@
 
 <div class="deck">
 
-  <!-- 1 · ТИТУЛ (с картой) -->
+    <!-- 1 · ТИТУЛ -->
   <section class="slide active hero">
-    <div class="hero-content">
-      <div class="kicker anim">Проект концепции</div>
-      <h1 class="anim">Кадровая стратегия<br><span class="hl">Тульской области</span></h1>
-      <p class="sub anim">От прогноза потребности — к обеспечению экономики квалифицированными кадрами</p>
-      <div class="speaker anim">
+    <!-- Верхняя плашка -->
+    <div class="hero-top">
+      <div class="hero-top-left">
+        <span class="red-line"></span>
+        <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span>
+      </div>
+      <div class="hero-top-right">
+        <span class="top-years">2026–2036</span>
+        <!-- Герб, если нет файла — скроется -->
+        <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="hero-main">
+      <!-- Левая часть: текст -->
+      <div class="hero-text">
+        <h1 class="anim">КАДРОВАЯ СТРАТЕГИЯ<br><span class="hl">ТУЛЬСКОЙ ОБЛАСТИ</span></h1>
+        <div class="hero-divider anim"></div>
+        <p class="sub anim">От прогноза потребности — к обеспечению экономики квалифицированными кадрами</p>
+      </div>
+
+      <!-- Правая часть: карта -->
+      <div class="hero-map anim">
+        <img src="image/map.png" alt="Карта Тульской области" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <!-- Нижняя часть: спикер и подпись -->
+    <div class="hero-bottom anim">
+      <div class="speaker">
         <div class="name">Архипова Наталия Александровна</div>
         <div class="role">Первый заместитель Губернатора Тульской области — председатель Правительства Тульской области</div>
       </div>
-    </div>
-    <div class="hero-map anim">
-      <div class="placeholder">
-        <b>МЕСТО ДЛЯ КАРТЫ</b>
-        Положите файл <b style="display:inline;font-size:12px;letter-spacing:0">map.jpg</b><br>рядом с index.html
-      </div>
-      <img src="image/map.png" alt="Карта Тульской области" onerror="this.style.display='none'" onload="this.previousElementSibling.style.display='none'">
+      <div class="footer-note">Кадровая стратегия • проект концепции</div>
     </div>
   </section>
 
-  <!-- 2 · РЕГИОН (с графиками) -->
+    <!-- 2 · РЕГИОН -->
   <section class="slide">
-    <div class="kicker anim">Слайд 2 · Регион</div>
-    <h1 class="anim">Тульская область / <span class="hl">кадровая стратегия</span></h1>
-    
-    <div class="grid-cards">
-      <div class="card anim" style="grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between">
-        <div>
-          <div class="v">1,457 млн жителей</div>
-          <div class="l">(на 01.01.2025)</div>
+    <!-- Верхняя плашка -->
+    <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10">
+      <div class="hero-top-left">
+        <span class="red-line"></span>
+        <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span>
+      </div>
+      <div class="hero-top-right">
+        <span class="top-years">2026–2036</span>
+        <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <div class="slide2-grid">
+      <!-- ЛЕВАЯ КОЛОНКА -->
+      <div class="col-left">
+        <!-- Блок 1 -->
+        <div class="s2-card anim" style="margin-bottom:12px">
+          <div class="s2-val">1,457 млн жителей</div>
+          <div class="s2-lbl">(на 01.01.2025)</div>
         </div>
-        <div class="chart-container" style="margin:10px 0 0 0;padding:8px;background:transparent;border:none">
-          <div class="chart-title" style="font-size:9px">Динамика численности, млн</div>
-          <div class="bar-chart" style="height:60px;gap:6px;border-bottom:none">
-            <div class="bar-group"><div class="bar" data-h="100"></div><div class="val" style="font-size:8px;top:-14px">1.49</div><div class="lbl" style="bottom:-14px;font-size:8px">23</div></div>
-            <div class="bar-group"><div class="bar" data-h="95"></div><div class="val" style="font-size:8px;top:-14px">1.481</div><div class="lbl" style="bottom:-14px;font-size:8px">24</div></div>
-            <div class="bar-group"><div class="bar" data-h="92"></div><div class="val" style="font-size:8px;top:-14px">1.47</div><div class="lbl" style="bottom:-14px;font-size:8px">25</div></div>
-            <div class="bar-group"><div class="bar" data-h="88"></div><div class="val" style="font-size:8px;top:-14px">1.457</div><div class="lbl" style="bottom:-14px;font-size:8px">26</div></div>
+        <div class="s2-chart-box anim">
+          <svg viewBox="0 0 200 100" class="line-chart">
+            <line x1="0" y1="80" x2="200" y2="80" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+            <polyline points="20,20 80,35 140,60 180,70" fill="none" stroke="var(--blue)" stroke-width="3" class="draw-line"/>
+            <circle cx="20" cy="20" r="3" fill="var(--gold)"/>
+            <circle cx="80" cy="35" r="3" fill="var(--gold)"/>
+            <circle cx="140" cy="60" r="3" fill="var(--gold)"/>
+            <circle cx="180" cy="70" r="3" fill="var(--gold)"/>
+            <text x="10" y="15" fill="#fff" font-size="8">1.49</text>
+            <text x="70" y="30" fill="#fff" font-size="8">1.471</text>
+            <text x="130" y="55" fill="#fff" font-size="8">1.457</text>
+          </svg>
+          <div class="s2-legend">
+            <span class="leg-line"></span> Численность жителей Тульской области, млн. чел.
           </div>
         </div>
-      </div>
-      <div class="card anim" style="grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between">
-        <div>
-          <div class="v">84,2 тыс. ₽</div>
-          <div class="l">среднемесячная зарплата (2025), +16%</div>
-        </div>
-        <div class="chart-container" style="margin:10px 0 0 0;padding:8px;background:transparent;border:none">
-          <div class="chart-title" style="font-size:9px">Зарплата, тыс. руб.</div>
-          <div class="bar-chart" style="height:60px;gap:6px;border-bottom:none">
-            <div class="bar-group"><div class="bar" data-h="70"></div><div class="val" style="font-size:8px;top:-14px">73.9</div><div class="lbl" style="bottom:-14px;font-size:8px">23</div></div>
-            <div class="bar-group"><div class="bar" data-h="85"></div><div class="val" style="font-size:8px;top:-14px">84.2</div><div class="lbl" style="bottom:-14px;font-size:8px">24</div></div>
-            <div class="bar-group"><div class="bar" data-h="100"></div><div class="val" style="font-size:8px;top:-14px">+16%</div><div class="lbl" style="bottom:-14px;font-size:8px">25</div></div>
+
+        <!-- Блок 3 -->
+        <div class="s2-title anim" style="margin-top:20px">среднемесячная заработная плата 84,2 тыс. Руб. <br><span style="font-size:12px;color:var(--muted)">(2025 г.) +16%</span></div>
+        <div class="s2-chart-box anim">
+          <svg viewBox="0 0 200 100" class="line-chart">
+            <line x1="0" y1="90" x2="200" y2="90" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+            <polyline points="20,80 80,40 140,20 180,10" fill="none" stroke="var(--blue)" stroke-width="3" class="draw-line"/>
+            <circle cx="20" cy="80" r="3" fill="var(--gold)"/>
+            <circle cx="80" cy="40" r="3" fill="var(--gold)"/>
+            <circle cx="140" cy="20" r="3" fill="var(--gold)"/>
+            <circle cx="180" cy="10" r="3" fill="var(--gold)"/>
+            <text x="10" y="75" fill="#fff" font-size="8">60.5</text>
+            <text x="70" y="35" fill="#fff" font-size="8">73.9</text>
+            <text x="160" y="5" fill="#fff" font-size="8">85.8</text>
+          </svg>
+          <div class="s2-legend">
+            <span class="leg-line"></span> Среднемесячная заработная плата работников организаций Тульской области, тыс. руб.
           </div>
         </div>
-      </div>
-      <div class="card anim" style="grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between">
-        <div>
-          <div class="v">61,1 тыс. ₽</div>
-          <div class="l">среднедушевые доходы (2025), +17,7%</div>
+
+        <!-- Блок 5 -->
+        <div class="s2-footer anim" style="margin-top:20px;font-size:11px;line-height:1.4;color:var(--muted)">
+          <b>121 инвестипроект ≈590 млрд ₽</b><br>
+          В регионе созданы:<br>
+          Особая экономическая зона промышленно-производственного типа "Узловая"<br>
+          Индустриальный парк "Узловая"<br>
+          Территория опережающего развития "Алексин"<br>
+          Территория опережающего развития "Ефремов"
         </div>
-        <div class="chart-container" style="margin:10px 0 0 0;padding:8px;background:transparent;border:none">
-          <div class="chart-title" style="font-size:9px">Доходы, тыс. руб.</div>
-          <div class="bar-chart" style="height:60px;gap:6px;border-bottom:none">
-            <div class="bar-group"><div class="bar" data-h="50"></div><div class="val" style="font-size:8px;top:-14px">42.4</div><div class="lbl" style="bottom:-14px;font-size:8px">23</div></div>
-            <div class="bar-group"><div class="bar" data-h="65"></div><div class="val" style="font-size:8px;top:-14px">51.9</div><div class="lbl" style="bottom:-14px;font-size:8px">24</div></div>
-            <div class="bar-group"><div class="bar" data-h="100"></div><div class="val" style="font-size:8px;top:-14px">61.1</div><div class="lbl" style="bottom:-14px;font-size:8px">25</div></div>
+      </div>
+
+      <!-- ЦЕНТРАЛЬНАЯ КОЛОНКА -->
+      <div class="col-center">
+        <!-- Блок 2 -->
+        <div class="s2-card anim" style="margin-bottom:12px">
+          <div class="s2-val">57%</div>
+          <div class="s2-lbl">доля трудоспособных — 828 тыс. человек</div>
+        </div>
+        <div class="s2-chart-box anim">
+          <svg viewBox="0 0 200 100" class="line-chart">
+            <line x1="0" y1="80" x2="200" y2="80" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+            <polyline points="20,60 80,20 140,70 180,75" fill="none" stroke="var(--blue)" stroke-width="3" class="draw-line"/>
+            <circle cx="20" cy="60" r="3" fill="var(--gold)"/>
+            <circle cx="80" cy="20" r="3" fill="var(--gold)"/>
+            <circle cx="140" cy="70" r="3" fill="var(--gold)"/>
+            <circle cx="180" cy="75" r="3" fill="var(--gold)"/>
+            <text x="10" y="55" fill="#fff" font-size="8">829.2</text>
+            <text x="70" y="15" fill="#fff" font-size="8">839.3</text>
+            <text x="130" y="65" fill="#fff" font-size="8">828.3</text>
+          </svg>
+          <div class="s2-legend">
+            <span class="leg-line"></span> Численность трудоспособного населения, тыс. чел.
+          </div>
+        </div>
+
+        <!-- Блок 4 -->
+        <div class="s2-title anim" style="margin-top:20px">Среднедушевые денежные доходы 61,1 <br><span style="font-size:12px;color:var(--muted)">(2025) руб. + 17,7%</span></div>
+        <div class="s2-chart-box anim">
+          <svg viewBox="0 0 200 100" class="line-chart">
+            <line x1="0" y1="90" x2="200" y2="90" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+            <polyline points="20,80 80,55 140,30 180,20" fill="none" stroke="var(--blue)" stroke-width="3" class="draw-line"/>
+            <circle cx="20" cy="80" r="3" fill="var(--gold)"/>
+            <circle cx="80" cy="55" r="3" fill="var(--gold)"/>
+            <circle cx="140" cy="30" r="3" fill="var(--gold)"/>
+            <circle cx="180" cy="20" r="3" fill="var(--gold)"/>
+            <text x="10" y="75" fill="#fff" font-size="8">42.4</text>
+            <text x="70" y="50" fill="#fff" font-size="8">51.9</text>
+            <text x="160" y="15" fill="#fff" font-size="8">61.1</text>
+          </svg>
+          <div class="s2-legend">
+            <span class="leg-line"></span> Среднедушевые денежные доходы, тыс. руб.
           </div>
         </div>
       </div>
 
-      <div class="card anim"><div class="v">121 инвестпроект</div><div class="l">≈590 млрд ₽</div></div>
-      <div class="card anim"><div class="v">57%</div><div class="l">доля трудоспособных — 828 тыс. человек</div></div>
-      <div class="card anim"><div class="v">8-е место</div><div class="l">по качеству жизни; в ЦФО — только Москва и МО</div></div>
-      
-      <div class="card anim" style="grid-column:span 2"><div class="l">В регионе созданы: ОЭЗ ППТ «Узловая», Индустриальный парк «Узловая», ТОР «Алексин», ТОР «Ефремов»</div></div>
-      <div class="card anim"><div class="v">1,3 трлн ВРП</div><div class="l">за 2024 год, +4,5%</div></div>
-      
-      <div class="card anim" style="grid-column:span 3"><div class="l">Промышленность, АПК, социальная сфера — ведущие отрасли региона, доля обрабатывающего сектора в экономике — 42%</div></div>
+      <!-- ПРАВАЯ КОЛОНКА -->
+      <div class="col-right">
+        <!-- Блок 6 -->
+        <div class="s2-card anim" style="background:linear-gradient(135deg,rgba(90,169,255,.1),rgba(255,255,255,.02));border-color:rgba(90,169,255,.3);margin-bottom:16px">
+          <div class="s2-val" style="font-size:clamp(18px,2vw,26px)">8-е место</div>
+          <div class="s2-lbl" style="font-size:clamp(14px,1.4vw,18px)">по качеству жизни; в ЦФО — только Москва и МО</div>
+        </div>
+
+        <!-- Блок 7 -->
+        <div class="s2-card anim" style="flex-grow:1;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(135deg,rgba(255,207,77,.1),rgba(255,255,255,.02));border-color:rgba(255,207,77,.3);margin-bottom:16px">
+          <div class="s2-lbl" style="font-size:clamp(16px,1.6vw,22px);color:var(--text);line-height:1.3">Промышленность, АПК, социальная сфера — ведущие отрасли региона, доля обрабатывающего сектора в экономике — 42%</div>
+        </div>
+
+        <!-- Блок 8 -->
+        <div class="s2-card anim" style="background:linear-gradient(135deg,rgba(75,224,164,.1),rgba(255,255,255,.02));border-color:rgba(75,224,164,.3)">
+          <div class="s2-val" style="font-size:clamp(18px,2vw,26px)">1,3 трлн ВРП</div>
+          <div class="s2-lbl" style="font-size:clamp(14px,1.4vw,18px)">за 2024 год, +4,5%</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 3 · РЫНОК ТРУДА (с графиком) -->
+      <!-- 3 · РЫНОК ТРУДА -->
   <section class="slide">
-    <div class="kicker anim">Слайд 3 · Рынок труда</div>
-    <h1 class="anim">Рынок труда: <span class="hl">стартовые условия</span></h1>
-    <p class="sub anim">Кадровый резерв ограничен: рост экономики требует роста отдачи от труда</p>
-    
-    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:20px;align-items:start">
-      <ul class="points" style="margin-top:0">
-        <li class="hasnum anim"><span class="num">01</span>≈793,5 тыс. человек — рабочая сила (2025)</li>
-        <li class="hasnum anim"><span class="num">02</span>25,0 тыс. вакансий на «Работе России» (ноябрь 2026)</li>
-        <li class="hasnum anim"><span class="num">03</span>43,4 года средний возраст рабочей силы</li>
-        <li class="hasnum anim"><span class="num">04</span>-40,0 тыс. сальдо межрегиональной трудовой миграции (2024)</li>
-      </ul>
-      
-      <div class="chart-container anim">
-        <div class="chart-title">Уровень участия в рабочей силе, %</div>
-        <div class="group-chart">
-          <div class="g-col">
-            <div class="g-bars">
-              <div class="g-bar rf" data-h="100"></div>
-              <div class="g-bar to" data-h="100"></div>
+    <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10">
+      <div class="hero-top-left">
+        <span class="red-line"></span>
+        <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span>
+      </div>
+      <div class="hero-top-right">
+        <span class="top-years">2026–2036</span>
+        <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'">
+      </div>
+    </div>
+
+    <div class="slide3-content">
+      <div class="s3-header anim">
+        <h1>РЫНОК ТРУДА: <span class="hl">СТАРТОВЫЕ УСЛОВИЯ</span></h1>
+        <p class="sub">Кадровый резерв ограничен: рост экономики требует роста отдачи от труда</p>
+      </div>
+
+      <div class="s3-body">
+        <!-- Левая колонка: списки -->
+        <div class="s3-list">
+          <div class="s3-item anim">
+            <div class="s3-num">01</div>
+            <div class="s3-text">≈793,5 тыс. человек — рабочая сила (2025)</div>
+          </div>
+          <div class="s3-item anim">
+            <div class="s3-num">02</div>
+            <div class="s3-text">25,0 тыс. вакансий на «Работе России» (ноябрь 2026)</div>
+          </div>
+          <div class="s3-item anim">
+            <div class="s3-num">03</div>
+            <div class="s3-text">43,4 года средний возраст рабочей силы;</div>
+          </div>
+          <div class="s3-item anim">
+            <div class="s3-num">04</div>
+            <div class="s3-text">–40,0 тыс. сальдо межрегиональной трудовой миграции (2024)</div>
+          </div>
+        </div>
+
+        <!-- Правая колонка: график -->
+                <div class="s3-chart-wrap anim">
+          <div class="s3-chart-title">Уровень участия в рабочей силе, %</div>
+          
+          <div class="s3-chart">
+            <!-- Группа 1: Занятость 2023 -->
+            <div class="s3-group">
+              <div class="s3-vals">60,0 / 60,3</div>
+              <div class="s3-bars">
+                <div class="s3-bar rf" style="height:100%"></div>
+                <div class="s3-bar to" style="height:99%"></div>
+              </div>
+              <div class="s3-lbl">2023</div>
             </div>
-            <div class="g-lbl">Занятость<br>РФ / ТО</div>
-          </div>
-          <div class="g-col">
-            <div class="g-bars">
-              <div class="g-bar rf" data-h="5"></div>
-              <div class="g-bar to" data-h="4.5"></div>
+            <!-- Группа 2: Занятость 2025 -->
+            <div class="s3-group">
+              <div class="s3-vals">61,6 / 61,4</div>
+              <div class="s3-bars">
+                <div class="s3-bar rf" style="height:100%"></div>
+                <div class="s3-bar to" style="height:99%"></div>
+              </div>
+              <div class="s3-lbl">2025</div>
             </div>
-            <div class="g-lbl">Безработица<br>РФ / ТО</div>
-          </div>
-          <div class="g-col">
-            <div class="g-bars">
-              <div class="g-bar rf" data-h="1"></div>
-              <div class="g-bar to" data-h="0.5"></div>
+
+            <!-- Группа 3: Безработица 2023 -->
+            <div class="s3-group">
+              <div class="s3-vals">3,2 / 2,7</div>
+              <div class="s3-bars">
+                <div class="s3-bar rf" style="height:5.2%"></div>
+                <div class="s3-bar to" style="height:4.4%"></div>
+              </div>
+              <div class="s3-lbl">2023</div>
             </div>
-            <div class="g-lbl">Регистр. безр.<br>РФ / ТО</div>
+            <!-- Группа 4: Безработица 2025 -->
+            <div class="s3-group">
+              <div class="s3-vals">2,2 / 1,5</div>
+              <div class="s3-bars">
+                <div class="s3-bar rf" style="height:3.6%"></div>
+                <div class="s3-bar to" style="height:2.4%"></div>
+              </div>
+              <div class="s3-lbl">2025</div>
+            </div>
+
+            <!-- Группа 5: Регистр. безработица 2023 -->
+            <div class="s3-group">
+              <div class="s3-vals">0,6 / 0,2</div>
+              <div class="s3-bars">
+                <div class="s3-bar rf" style="height:1%"></div>
+                <div class="s3-bar to" style="height:0.6%"></div>
+              </div>
+              <div class="s3-lbl">2023</div>
+            </div>
+            <!-- Группа 6: Регистр. безработица 2025 -->
+            <div class="s3-group">
+              <div class="s3-vals">0,4 / 0,1</div>
+              <div class="s3-bars">
+                <div class="s3-bar rf" style="height:0.7%"></div>
+                <div class="s3-bar to" style="height:0.4%"></div>
+              </div>
+              <div class="s3-lbl">2025</div>
+            </div>
           </div>
+
+          <!-- Подписи блоков под графиком -->
+          <div class="s3-sublegend">
+            <div class="s3-sublegend-item" style="flex:2">Уровень занятости, %</div>
+            <div class="s3-sublegend-item" style="flex:2">Уровень безработицы, %</div>
+            <div class="s3-sublegend-item" style="flex:2">Уровень регистрируемой безработицы, %</div>
+          </div>
+          
+          <div class="s3-chart-legend">
+            <span><span class="dot rf"></span> РФ</span>
+            <span><span class="dot to"></span> Тульская область</span>
+          </div>
+        </div>
+
+      <div class="s3-footer anim">
+        <div class="s3-footer-line"></div>
+        <div class="s3-footer-text">
+          <b>Вывод:</b> только наймом дефицит не закрыть — необходим опережающий рост производительности.
         </div>
       </div>
     </div>
-    <div class="takeaway anim"><span>Вывод</span>Только наймом дефицит не закрыть — необходим опережающий рост производительности.</div>
   </section>
 
-  <!-- 4 · ТРЕНДЫ -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 4 · Тренды и вызовы</div>
-    <h1 class="anim">Тренды и вызовы</h1>
-    <p class="sub anim">Мировые изменения усиливают региональные ограничения</p>
-    <div class="bento">
-      <div class="bento-item anim"><b>01</b> Демография: старение, сокращение молодых когорт, рост замещающей потребности</div>
-      <div class="bento-item anim"><b>02</b> Конкуренция: другие регионы</div>
-      <div class="bento-item anim"><b>03</b> Ускорение технологических изменений: роботизация, автоматизация, ИИ</div>
-      <div class="bento-item anim"><b>04</b> Изменение карьерных ожиданий: гибкость, качество рабочих мест, обучение всю жизнь</div>
-      <div class="bento-item anim"><b>05</b> Новые инвестпроекты и технологический суверенитет требуют опережающей подготовки</div>
-      <div class="bento-item anim"><b>06</b> Внедрение принципов бережливого производства</div>
-    </div>
-    <div class="takeaway anim"><span>Стратегический ответ</span>Технологии + новые компетенции + повышение производительности.</div>
-  </section>
+<!-- Слайд 4: Тренды и вызовы --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide4-content"> <!-- Левая колонка: вызовы --> <div class="slide4-left"> <h1 class="anim">ТРЕНДЫ И ВЫЗОВЫ</h1> <p class="sub anim">Мировые изменения усиливают региональные ограничения</p> <div class="slide4-challenges"> <div class="challenge-item anim"> <div class="challenge-num">01</div> <div class="challenge-text">Демография: старение, сокращение молодых когорт, рост замещающей потребности</div> </div> <div class="challenge-item anim"> <div class="challenge-num">02</div> <div class="challenge-text">Конкуренция за регионами</div> </div> <div class="challenge-item anim"> <div class="challenge-num">03</div> <div class="challenge-text">Ускорение технологических изменений: роботизация, автоматизация, ИИ</div> </div> </div> </div> <!-- Правая колонка: тренды --> <div class="slide4-right"> <h1 class="anim">ТРЕНДЫ</h1> <div class="trends-list"> <div class="trend-item anim"> <div class="trend-num">04</div> <div class="trend-text">Изменение карьерных ожиданий: гибкость, качество рабочих мест, обучение всю жизнь</div> </div> <div class="trend-item anim"> <div class="trend-num">05</div> <div class="trend-text">Новые инвестпроекты и технологический суверенитет требуют опережающей подготовки</div> </div> <div class="trend-item anim"> <div class="trend-num">06</div> <div class="trend-text">Внедрение принципов бережливого производства</div> </div> </div> </div> <!-- Центр: пирамиды --> <div class="slide4-pyramids anim"> <div class="pyramid-title">ТЕКУЩАЯ И ПРОГНОЗНАЯ ПОЛОВОЗРАСТНЫЕ ПИРАМИДЫ</div> <div class="pyramids-wrapper"> <div class="pyramid"> <div class="pyramid-label">2025</div> <div class="pyramid-bars"> <!-- Здесь будут горизонтальные полосы (см. CSS) --> </div> </div> <div class="pyramid"> <div class="pyramid-label">2032</div> <div class="pyramid-bars"> <!-- Здесь будут горизонтальные полосы (см. CSS) --> </div> </div> </div> <div class="pyramid-legend"> <span class="legend-item"><span class="legend-dot legend-f"></span> Ж</span> <span class="legend-item"><span class="legend-dot legend-m"></span> М</span> </div> </div> <!-- Вывод --> <div class="slide4-footer anim"> <div class="footer-line"></div> <div class="footer-text">Стратегический ответ: технологии + новые компетенции + повышение производительности.</div> </div> </div> </section>
 
-  <!-- 5 · КОНЦЕПЦИЯ -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 5 · Концепция</div>
-    <h1 class="anim">Концепция <span class="hl">кадровой стратегии</span></h1>
-    <p class="sub anim">Три взаимосвязанных рычага: кадры → технологии → производительность</p>
-    <div class="concept">
-      <div class="concept-block anim"><div class="tag">01 ЦЕЛЬ</div><p>Устойчивое кадровое обеспечение экономики и социальной сферы до 2030 года с горизонтом до 2036 года</p></div>
-      <div class="concept-block anim"><div class="tag">02 ПРИНЦИП</div><p>Решения на основе данных работодателей, муниципалитетов и образовательных организаций</p></div>
-      <div class="concept-block anim"><div class="tag">03 ПРОЕКТЫ</div><p>Прогноз и подготовка кадров; удержание и миграция; модернизация процессов и рост производительности</p></div>
-    </div>
-    <div class="takeaway anim"><span>Важно</span>Целевые значения метрик — проект для согласования с ответственными ведомствами.</div>
-  </section>
+<!-- Слайд 5: Концепция кадровой стратегии --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide5-content"> <h1 class="anim">КОНЦЕПЦИЯ КАДРОВОЙ СТРАТЕГИИ</h1> <p class="sub anim">Три взаимосвязанных рычага: кадры → технологии → производительность</p> <div class="slide5-grid"> <!-- Карточка 1 --> <div class="slide5-card anim"> <div class="card-num">01</div> <div class="card-title">ЦЕЛЬ</div> <div class="card-text">устойчивое кадровое обеспечение экономики и социальной сферы до 2030 года с горизонтом до 2036 года</div> </div> <!-- Карточка 2 --> <div class="slide5-card anim"> <div class="card-num">02</div> <div class="card-title">ПРИНЦИП</div> <div class="card-text">решения на основе данных работодателей, муниципалитетов и образовательных организаций</div> </div> <!-- Карточка 3 --> <div class="slide5-card anim"> <div class="card-num">03</div> <div class="card-title">ПРОЕКТЫ</div> <div class="card-text">прогноз и подготовка кадров; удержание и миграция; модернизация процессов и рост производительности</div> </div> <!-- Карточка 4 --> <div class="slide5-card anim"> <div class="card-num">04</div> <div class="card-title">МЕТРИКИ</div> <div class="card-text">закрытие дефицита; выпуск и закрепление кадров; выработка на работника; доля модернизированных процессов</div> </div> </div> <!-- Вывод --> <div class="slide5-footer anim"> <div class="footer-line"></div> <div class="footer-text">Целевые значения метрик — проект для согласования с ответственными ведомствами.</div> </div> </div> </section>
 
-  <!-- 6 · СИСТЕМНАЯ ЗАДАЧА 1 (с графиком) -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 6 · Системная задача 1</div>
-    <h1 class="anim">Прогнозировать потребность и <span class="hl">управлять кадровым заказом</span></h1>
-    <ul class="points" style="margin-bottom:10px">
-      <li class="hasnum anim"><span class="num">01</span>Ежедневный 7-летний прогноз по отраслям, профессиям и муниципалитетам</li>
-      <li class="hasnum anim"><span class="num">02</span>Раздельный учет приростной и замещающей потребности; связь с графиками инвестиций</li>
-      <li class="hasnum anim"><span class="num">03</span>Квартальная сверка крупных работодателей: вакансии, ввод мощностей, текучесть</li>
-      <li class="hasnum anim"><span class="num">04</span>Корректировка контрольных цифр приема и программ обучения на основе прогноза</li>
-    </ul>
-    
-    <div class="chart-container anim" style="margin-top:8px">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-        <div class="chart-title" style="margin-bottom:0">Динамика общей и замещающей кадровой потребности, тыс. чел.</div>
-        <div style="display:flex;gap:16px;font-size:10px;color:var(--muted)">
-          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;background:var(--blue);border-radius:2px"></span> Общая</span>
-          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;background:rgba(255,157,61,.4);border-radius:2px"></span> Выбытие</span>
-          <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;background:var(--red);border-radius:2px"></span> Сокращение</span>
-        </div>
-      </div>
-      <div class="stacked-chart">
-        <div class="s-col"><div class="s-seg s-seg-total" data-h="70"></div><div class="s-seg s-seg-repl" data-h="20"></div><div class="s-seg s-seg-red" data-h="5"></div><div class="s-val">737,0</div><div class="s-lbl">2026</div></div>
-        <div class="s-col"><div class="s-seg s-seg-total" data-h="71"></div><div class="s-seg s-seg-repl" data-h="21"></div><div class="s-seg s-seg-red" data-h="4"></div><div class="s-val">737,8</div><div class="s-lbl">2027</div></div>
-        <div class="s-col"><div class="s-seg s-seg-total" data-h="72"></div><div class="s-seg s-seg-repl" data-h="22"></div><div class="s-seg s-seg-red" data-h="3"></div><div class="s-val">739,0</div><div class="s-lbl">2028</div></div>
-        <div class="s-col"><div class="s-seg s-seg-total" data-h="73"></div><div class="s-seg s-seg-repl" data-h="23"></div><div class="s-seg s-seg-red" data-h="2"></div><div class="s-val">740,7</div><div class="s-lbl">2029</div></div>
-        <div class="s-col"><div class="s-seg s-seg-total" data-h="72"></div><div class="s-seg s-seg-repl" data-h="24"></div><div class="s-seg s-seg-red" data-h="2"></div><div class="s-val">740,1</div><div class="s-lbl">2030</div></div>
-        <div class="s-col"><div class="s-seg s-seg-total" data-h="71"></div><div class="s-seg s-seg-repl" data-h="22"></div><div class="s-seg s-seg-red" data-h="3"></div><div class="s-val">736,9</div><div class="s-lbl">2031</div></div>
-        <div class="s-col"><div class="s-seg s-seg-total" data-h="70"></div><div class="s-seg s-seg-repl" data-h="20"></div><div class="s-seg s-seg-red" data-h="4"></div><div class="s-val">732,4</div><div class="s-lbl">2032</div></div>
-      </div>
-      <div style="display:flex;gap:20px;font-size:11px;color:var(--muted);margin-top:4px">
-        <span><b style="color:var(--red)">-0,3%</b> снижение общей потребности в 2032 относительно 2025</span>
-        <span><b style="color:var(--text)">98,2 тыс. чел.</b> совокупный объем замещающей потребности за 7 лет</span>
-      </div>
-    </div>
-    <div class="takeaway anim" style="margin-top:10px"><span>Результат</span>Единая карта кадрового спроса региона.</div>
-  </section>
+  <!-- Слайд 6: Системная задача 1 --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide6-content"> <h1 class="anim">СИСТЕМНАЯ ЗАДАЧА 1</h1> <p class="sub anim">Прогнозировать потребность и управлять кадровым заказом</p> <div class="slide6-grid"> <!-- Карточка 1 --> <div class="slide6-card anim"> <div class="card-num">01</div> <div class="card-title">Ежегодный 7-летний прогноз</div> <div class="card-text">по отраслям, профессиям и муниципалитетам</div> </div> <!-- Карточка 2 --> <div class="slide6-card anim"> <div class="card-num">02</div> <div class="card-title">Раздельный учёт</div> <div class="card-text">приростной и замещающей потребности; связь с графиками инвестпроектов</div> </div> <!-- Карточка 3 --> <div class="slide6-card anim"> <div class="card-num">03</div> <div class="card-title">Квартальная сверка</div> <div class="card-text">крупных работодателей: вакансии, ввод мощностей, текучесть</div> </div> <!-- Карточка 4 --> <div class="slide6-card anim"> <div class="card-num">04</div> <div class="card-title">Корректировка контрольных цифр</div> <div class="card-text">приёма и программ обучения на основе прогноза</div> </div> </div> <!-- График --> <div class="slide6-chart anim"> <div class="chart-title">ДИНАМИКА ОБЩЕЙ И ЗАМЕЩАЮЩЕЙ КАДРОВОЙ ПОТРЕБНОСТИ, ТЫС. ЧЕЛ.</div> <div class="chart-subtitle">-0,3% снижение общей потребности в 2032 относительно 2025 &nbsp;&nbsp;|&nbsp;&nbsp; 98,2 тыс. чел. совокупный объём замещающей потребности за 7 лет</div> <div class="chart-container"> <svg viewBox="0 0 1000 400" class="chart-svg"> <!-- Оси --> <line x1="80" y1="350" x2="950" y2="350" stroke="rgba(255,255,255,.1)" stroke-width="1"/> <line x1="80" y1="50" x2="80" y2="350" stroke="rgba(255,255,255,.1)" stroke-width="1"/> <!-- Метки Y --> <text x="65" y="55" text-anchor="end" font-size="10" fill="var(--muted)">745,00</text> <text x="65" y="105" text-anchor="end" font-size="10" fill="var(--muted)">740,00</text> <text x="65" y="155" text-anchor="end" font-size="10" fill="var(--muted)">735,00</text> <text x="65" y="205" text-anchor="end" font-size="10" fill="var(--muted)">730,00</text> <text x="65" y="255" text-anchor="end" font-size="10" fill="var(--muted)">725,00</text> <text x="65" y="305" text-anchor="end" font-size="10" fill="var(--muted)">720,00</text> <text x="65" y="355" text-anchor="end" font-size="10" fill="var(--muted)">715,00</text> <text x="65" y="405" text-anchor="end" font-size="10" fill="var(--muted)">710,00</text> <text x="65" y="455" text-anchor="end" font-size="10" fill="var(--muted)">705,00</text> <!-- Метки X --> <text x="130" y="375" text-anchor="middle" font-size="10" fill="var(--muted)">2026</text> <text x="230" y="375" text-anchor="middle" font-size="10" fill="var(--muted)">2027</text> <text x="330" y="375" text-anchor="middle" font-size="10" fill="var(--muted)">2028</text> <text x="430" y="375" text-anchor="middle" font-size="10" fill="var(--muted)">2029</text> <text x="530" y="375" text-anchor="middle" font-size="10" fill="var(--muted)">2030</text> <text x="630" y="375" text-anchor="middle" font-size="10" fill="var(--muted)">2031</text> <text x="730" y="375" text-anchor="middle" font-size="10" fill="var(--muted)">2032</text> <!-- Столбцы (общая потребность) --> <rect x="100" y="180" width="60" height="170" fill="var(--blue)" class="bar" data-year="2026"/> <rect x="200" y="170" width="60" height="180" fill="var(--blue)" class="bar" data-year="2027"/> <rect x="300" y="160" width="60" height="190" fill="var(--blue)" class="bar" data-year="2028"/> <rect x="400" y="150" width="60" height="200" fill="var(--blue)" class="bar" data-year="2029"/> <rect x="500" y="155" width="60" height="195" fill="var(--blue)" class="bar" data-year="2030"/> <rect x="600" y="165" width="60" height="185" fill="var(--blue)" class="bar" data-year="2031"/> <rect x="700" y="185" width="60" height="165" fill="var(--blue)" class="bar" data-year="2032"/> <!-- Значения над столбцами --> <text x="130" y="170" text-anchor="middle" font-size="11" fill="var(--text)" class="bar-label">737,0</text> <text x="230" y="160" text-anchor="middle" font-size="11" fill="var(--text)" class="bar-label">737,8</text> <text x="330" y="150" text-anchor="middle" font-size="11" fill="var(--text)" class="bar-label">739,0</text> <text x="430" y="140" text-anchor="middle" font-size="11" fill="var(--text)" class="bar-label">740,7</text> <text x="530" y="145" text-anchor="middle" font-size="11" fill="var(--text)" class="bar-label">740,1</text> <text x="630" y="155" text-anchor="middle" font-size="11" fill="var(--text)" class="bar-label">736,9</text> <text x="730" y="175" text-anchor="middle" font-size="11" fill="var(--text)" class="bar-label">732,4</text> <!-- Области (замещающая и приростная потребность) --> <path d="M100,350 L100,300 L200,290 L200,350 Z" fill="rgba(255,91,122,.3)" class="area-reduction"/> <path d="M100,350 L100,280 L200,270 L200,350 Z" fill="rgba(255,207,77,.2)" class="area-turnover"/> <path d="M100,350 L100,260 L200,250 L200,350 Z" fill="rgba(90,169,255,.2)" class="area-new"/> <!-- Повторить для остальных лет... --> <!-- Легенда --> <rect x="80" y="420" width="12" height="12" fill="var(--red)" class="legend-dot"/> <text x="100" y="432" font-size="10" fill="var(--muted)" class="legend-label">Сокращение рабочих мест</text> <rect x="220" y="420" width="12" height="12" fill="rgba(255,91,122,.3)" class="legend-dot"/> <text x="240" y="432" font-size="10" fill="var(--muted)" class="legend-label">Выбытие</text> <rect x="340" y="420" width="12" height="12" fill="rgba(90,169,255,.2)" class="legend-dot"/> <text x="360" y="432" font-size="10" fill="var(--muted)" class="legend-label">Создание новых рабочих мест</text> <rect x="460" y="420" width="12" height="12" fill="var(--blue)" class="legend-dot"/> <text x="480" y="432" font-size="10" fill="var(--muted)" class="legend-label">Общая кадровая потребность</text> </svg> </div> </div> <!-- Вывод --> <div class="slide6-footer anim"> <div class="footer-line"></div> <div class="footer-text">Результат: единая карта кадрового спроса региона.</div> </div> </div> </section>
 
-  <!-- 7 · СИСТЕМНАЯ ЗАДАЧА 2 -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 7 · Системная задача 2</div>
-    <h1 class="anim">Готовить кадры <span class="hl">вместе с работодателями</span></h1>
-    <ul class="points">
-      <li class="hasnum anim"><span class="num">01</span><b>«Профессионалитет»:</b> 8 действующих кластеров (+7 создаваемых в 2026 году). 27 организаций СПО, 70 работодателей. 2027: энергетический кластер; 594 студента на старте, >1,5 тыс. выпускников к концу 2029 года, модули роботизации и цифровых компетенций; практика и наставничество на предприятиях</li>
-      <li class="hasnum anim"><span class="num">02</span><b>12 образовательных организаций высшего образования, в т. ч. 6 государственных вузов (31,5 тыс. студентов).</b> 40 % студентов обучаются на инженерно-технических и математических направлениях</li>
-      <li class="hasnum anim"><span class="num">03</span>Ключевые вузы - участники программы Приоритет-2030, ТулГУ - инициатор проекта ИНТЦ «Композитная долина», Передовая инженерная школа «Интеллектуальные оборонные системы», ТГПУ им. Л.Н. Толстого - проект «PROстажер. Студент — учитель: старт педагогической карьеры». <b>Ключевой проект до 2036 года - Тульский межвузовский оборонный кампус</b></li>
-    </ul>
-    <div class="takeaway anim"><span>Результат</span>Выпускник с востребованной квалификацией и понятным рабочим местом.</div>
-  </section>
+  <!-- Слайд 7: Системная задача 2 --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide7-content"> <h1 class="anim">СИСТЕМНАЯ ЗАДАЧА 2</h1> <p class="sub anim">Готовить кадры вместе с работодателями</p> <div class="slide7-grid"> <!-- Блок 1 --> <div class="slide7-card anim"> <div class="card-num">01</div> <div class="card-title">«Профессионалитет»</div> <div class="card-text"> <div>8 действующих кластеров (+7 создаваемых в 2026 году)</div> <div>27 организаций СПО, 70 работодателей</div> <div>2027: энергетический кластер; 594 студента на старте, >1,5 тыс. выпускников к концу 2029 года, модули роботизации и цифровых компетенций; практика и наставничество на предприятиях</div> </div> </div> <!-- Блок 2 --> <div class="slide7-card anim"> <div class="card-num">02</div> <div class="card-title">Высшее образование</div> <div class="card-text"> <div>12 образовательных организаций высшего образования, в т. ч. 6 государственных вузов (31,5 тыс. студентов)</div> <div>40 % студентов обучаются на инженерно-технических и математических направлениях</div> <div>Ключевые вузы - участники программы Приоритет-2030, ТулГУ - инициатор проекта ИНТЦ «Композитная долина», Передовая инженерная школа «Интеллектуальные оборонные системы», ТГПУ им. Л.Н. Толстого - проект «PROстажер. Студент — учитель: старт педагогической карьеры»</div> <div><b>Ключевой проект до 2036 года - Тульский межвузовский оборонный кампус</b></div> </div> </div> </div> <!-- Вывод --> <div class="slide7-footer anim"> <div class="footer-line"></div> <div class="footer-text">Результат: выпускник с востребованной квалификацией и понятным рабочим местом.</div> </div> </div> </section>
 
-  <!-- 8 · СИСТЕМНАЯ ЗАДАЧА 3 -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 8 · Системная задача 3</div>
-    <h1 class="anim">Привлекать и развивать кадры — одновременно <span class="hl">повышая отдачу от труда</span></h1>
-    <ul class="points">
-      <li class="anim">Переобучение работников ОПК и граждан, меняющих профессию — нацпроект «Кадры»</li>
-      <li class="anim">Стандартизация подходов по привлечению и удержанию кадров: материальная поддержка, качество рабочих мест, наставничество, охрана здоровья, карьерные траектории</li>
-      <li class="anim">Трудоустройство молодежи, женщин с инвалидностью и участников СВО</li>
-      <li class="anim">Производительность: бережливые технологии, автоматизация, роботизация и устранение потерь</li>
-    </ul>
-    <div class="takeaway anim"><span>Важно</span>Кадровые резервы и миграция важны, но без роста производительности дефицит не преодолеть.</div>
-  </section>
+  <!-- Слайд 8: Системная задача 3 --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide8-content"> <h1 class="anim">СИСТЕМНАЯ ЗАДАЧА 3</h1> <p class="sub anim">Привлекать и развивать кадры — одновременно повышая отдачу от труда</p> <div class="slide8-grid"> <!-- Карточка 1 --> <div class="slide8-card anim"> <div class="card-num">01</div> <div class="card-title">Переобучение работников ОПК и граждан, меняющих профессию</div> <div class="card-text">нацпроект «Кадры»</div> </div> <!-- Карточка 2 --> <div class="slide8-card anim"> <div class="card-num">02</div> <div class="card-title">Трудоустройство молодежи, женщин с детьми, людей с инвалидностью и участников СВО</div> <div class="card-text"></div> </div> <!-- Карточка 3 --> <div class="slide8-card anim"> <div class="card-num">03</div> <div class="card-title">Урбанистика и пространственное развитие</div> <div class="card-text">транспортная доступность, жилье, маршрутизация к работодателям</div> </div> <!-- Карточка 4 --> <div class="slide8-card anim"> <div class="card-num">04</div> <div class="card-title">Стандартизация подходов по привлечению и удержанию кадров</div> <div class="card-text">материальная поддержка, качество рабочих мест, наставничество, охрана здоровья, карьерные траектории</div> </div> <!-- Карточка 5 --> <div class="slide8-card anim"> <div class="card-num">05</div> <div class="card-title">Производительность</div> <div class="card-text">бережливые технологии, автоматизация, роботизация и устранение потерь</div> </div> </div> <!-- Вывод --> <div class="slide8-footer anim"> <div class="footer-line"></div> <div class="footer-text">Кадровые резервы и миграция важны, но без роста производительности дефицит не преодолеть.</div> </div> </div> </section>
 
-  <!-- 9 · СИСТЕМНАЯ ЗАДАЧА 4 -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 9 · Системная задача 4</div>
-    <h1 class="anim">Повышение производительности — <span class="hl">условия реализации кадровой стратегии</span></h1>
-    <ul class="points">
-      <li class="hasnum anim"><span class="num">01</span><b>ПЕРЕСМОТР ПРОЦЕССОВ:</b> устранение потерь времени, повышение эффективности организации труда</li>
-      <li class="hasnum anim"><span class="num">02</span><b>ТЕХНОЛОГИИ:</b> автоматизация, роботизация, цифровой контроль качества, предиктивное обслуживание оборудования</li>
-    </ul>
-    <div class="takeaway anim"><span>Важно</span>Вовлечь к 2030 году 40% средних и крупных предприятий базовых несырьевых отраслей и все государственные и муниципальные организации социальной сферы</div>
-  </section>
+  <!-- Слайд 9: Системная задача 4 --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide9-content"> <h1 class="anim">СИСТЕМНАЯ ЗАДАЧА 4</h1> <p class="sub anim">Повышение производительности — условие реализации кадровой стратегии</p> <div class="slide9-grid"> <!-- Карточка 1 --> <div class="slide9-card anim"> <div class="card-num">01</div> <div class="card-title">ПЕРЕСМОТР ПРОЦЕССОВ</div> <div class="card-text">устранение потерь времени, повышение эффективности организации труда</div> </div> <!-- Карточка 2 --> <div class="slide9-card anim"> <div class="card-num">02</div> <div class="card-title">ТЕХНОЛОГИИ</div> <div class="card-text">автоматизация, роботизация, цифровой контроль качества, предиктивное обслуживание оборудования</div> </div> <!-- Карточка 3 --> <div class="slide9-card anim"> <div class="card-num">03</div> <div class="card-title">КОМПЕТЕНЦИИ</div> <div class="card-text">подготовка работников и руководителей к новой организации труда</div> </div> <!-- Карточка 4 --> <div class="slide9-card anim"> <div class="card-num">04</div> <div class="card-title">АДРЕСНАЯ ПОДДЕРЖКА ПРЕДПРИЯТИЙ</div> <div class="card-text">дефицит кадров уже ограничивает выпуск или запуск инвестпроектов</div> </div> </div> <!-- Результат --> <div class="slide9-result anim"> <div class="result-title">РЕЗУЛЬТАТ</div> <div class="result-text">за 6 лет реализации Федерального проекта «Производительность труда» потребность в кадрах снизилась на 130,0 тыс. чел.</div> </div> <!-- Вывод --> <div class="slide9-footer anim"> <div class="footer-line"></div> <div class="footer-text">Важно: вовлечь к 2030 году 40% средних и крупных предприятий базовых несырьевых отраслей и все государственные и муниципальные организации социальной сферы</div> </div> </div> </section>
 
-  <!-- 10 · УПРАВЛЕНИЕ -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 10 · Управление и мониторинг</div>
-    <h1 class="anim">Единый центр решений и <span class="hl">ответственность за результат</span></h1>
-    <div class="grid-cards" style="grid-template-columns:repeat(2,1fr);max-width:1000px;gap:10px;margin-top:6px">
-      <div class="card anim" style="border-color:rgba(255,207,77,.3)"><div class="l"><b>Предлагаемый межведомственный координационный орган</b><br>при Правительстве области</div></div>
-      <div class="card anim"><div class="l"><b>Информационная панель СЦ:</b><br>кадровый дефицит, выработка на работника, эффект модернизации и подготовка кадров</div></div>
-      <div class="card anim"><div class="l"><b>Владельцы направлений:</b><br>ОИВ в сфере труда и занятости, образования, экономики, промышленности, бизнеса и иные отраслевые министерства</div></div>
-      <div class="card anim"><div class="l"><b>Муниципальный срез</b><br>раннее предупреждение о дефиците и корректирующие решения</div></div>
-      <div class="card anim" style="grid-column:span 2"><div class="l"><b>Работодатели и отраслевые объединения</b><br>подтверждают спрос и участвуют в подготовке</div></div>
-    </div>
-  </section>
+  <!-- Слайд 10: Управление и мониторинг --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide10-content"> <h1 class="anim">УПРАВЛЕНИЕ И МОНИТОРИНГ</h1> <p class="sub anim">Единый центр решений и ответственность за результат</p> <div class="slide10-grid"> <!-- Карточка 1 --> <div class="slide10-card anim"> <div class="card-num">01</div> <div class="card-title">Предлагаемый межведомственный координационный орган</div> <div class="card-text">при Правительстве области</div> </div> <!-- Карточка 2 --> <div class="slide10-card anim"> <div class="card-num">02</div> <div class="card-title">Владельцы направлений</div> <div class="card-text">ОИВ в сфере труда и занятости, образования, экономики, промышленности, бизнеса и иные отраслевые министерства</div> </div> <!-- Карточка 3 --> <div class="slide10-card anim"> <div class="card-num">03</div> <div class="card-title">Работодатели и отраслевые объединения</div> <div class="card-text">подтверждают спрос и участвуют в подготовке</div> </div> <!-- Карточка 4 --> <div class="slide10-card anim"> <div class="card-num">04</div> <div class="card-title">Информационная панель СЦ</div> <div class="card-text">кадровый дефицит, выработка на работника, эффект модернизации и подготовка кадров</div> </div> <!-- Карточка 5 --> <div class="slide10-card anim"> <div class="card-num">05</div> <div class="card-title">Муниципальный срез</div> <div class="card-text">раннее предупреждение о дефиците и корректирующие решения</div> </div> </div> <!-- Вывод --> <div class="slide10-footer anim"> <div class="footer-line"></div> <div class="footer-text">По поручению Губернатора создана Рабочая группа по разработке комплексных мероприятий по развитию рынка труда, созданию условий для занятости на территории Тульской области — единый центр кадровых решений</div> </div> </div> </section>
 
-    <!-- 11 · РИСКИ -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 11 · Риски</div>
-    <h1 class="anim">Риски и <span class="hl">меры реагирования</span></h1>
-    <p class="sub anim">Управляем рисками для митигации кадрового разрыва</p>
-    
-    <div class="grid-cards" style="grid-template-columns:1fr;max-width:1000px;gap:12px;margin-top:8px">
-      <div class="card anim" style="padding:20px 24px">
-        <div class="v" style="font-size:clamp(16px,1.5vw,20px);margin-bottom:8px">Недостаток работников</div>
-        <div class="l" style="font-size:clamp(14px,1.3vw,17px)">→ модернизация процессов, автоматизация, повышение производительности</div>
-      </div>
-      
-      <div class="card anim" style="padding:20px 24px">
-        <div class="v" style="font-size:clamp(16px,1.5vw,20px);margin-bottom:8px">Отток молодежи</div>
-        <div class="l" style="font-size:clamp(14px,1.3vw,17px)">→ целевое обучение, урбанистика и пространственное развитие, наставничество, бенефиты от работодателя</div>
-      </div>
-      
-      <div class="card anim" style="padding:20px 24px">
-        <div class="v" style="font-size:clamp(16px,1.5vw,20px);margin-bottom:8px">Рост выпуска опережает доступность кадров</div>
-        <div class="l" style="font-size:clamp(14px,1.3vw,17px)">Ответ — измеряемая производительность</div>
-      </div>
-    </div>
-  </section>
+  <!-- Слайд 11: Риски и меры реагирования --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide11-content"> <h1 class="anim">РИСКИ И МЕРЫ РЕАГИРОВАНИЯ</h1> <p class="sub anim">Управляем рисками для митигации кадрового разрыва</p> <div class="slide11-grid"> <!-- Карточка 1 --> <div class="slide11-card anim"> <div class="card-num">01</div> <div class="card-title">Недостаток работников</div> <div class="card-text">модернизация процессов, автоматизация, повышение производительности</div> </div> <!-- Карточка 2 --> <div class="slide11-card anim"> <div class="card-num">02</div> <div class="card-title">Отток молодежи</div> <div class="card-text">целевое обучение, урбанистика и пространственное развитие, наставничество, бенефиты от работодателя</div> </div> <!-- Карточка 3 --> <div class="slide11-card anim"> <div class="card-num">03</div> <div class="card-title">Несовпадение подготовки и спроса</div> <div class="card-text">регулярный прогноз и участие работодателей в опросе кадровой потребности, формирование КЦП и разработка новых конкурентных образовательных программ</div> </div> </div> <!-- Вывод --> <div class="slide11-footer anim"> <div class="footer-line"></div> <div class="footer-text">Риск: рост выпуска опережает доступность кадров; ответ — измеряемая производительность</div> </div> </div> </section>
 
-  <!-- 12 · ДОРОЖНАЯ КАРТА -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 12 · Дорожная карта</div>
-    <h1 class="anim">От запуска управления — <span class="hl">к измеримому эффекту</span></h1>
-    <div class="tl">
-      <div class="tl-item anim"><div class="yr">2026</div><div class="tx">Карта дефицита и KPI; отбор предприятий для проектов роста производительности</div></div>
-      <div class="tl-item anim"><div class="yr">2027</div><div class="tx">Отраслевые планы; тиражирование бережливых практик и автоматизации</div></div>
-      <div class="tl-item anim"><div class="yr">2028</div><div class="tx">Оценка выработки, экономии трудозатрат и результатов переобучения</div></div>
-      <div class="tl-item anim"><div class="yr">2029–2030</div><div class="tx">Масштабирование успешных решений; оценка достижения KPI</div></div>
-    </div>
-    <div class="takeaway anim"><span>Важно</span>Сроки управленческих действий — предлагаемый проект дорожной карты</div>
-  </section>
+  <!-- Слайд 12: Дорожная карта --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide12-content"> <h1 class="anim">ДОРОЖНАЯ КАРТА</h1> <p class="sub anim">От запуска управления — к измеримому эффекту</p> <div class="slide12-grid"> <!-- Карточка 1 --> <div class="slide12-card anim"> <div class="card-num">01</div> <div class="card-title">2026</div> <div class="card-text">Карта дефицита и KPI; отбор предприятий для проектов роста производительности</div> </div> <!-- Карточка 2 --> <div class="slide12-card anim"> <div class="card-num">02</div> <div class="card-title">2027</div> <div class="card-text">Отраслевые планы; тиражирование бережливых практик и автоматизации</div> </div> <!-- Карточка 3 --> <div class="slide12-card anim"> <div class="card-num">03</div> <div class="card-title">2028</div> <div class="card-text">Оценка выработки, экономии трудозатрат и результатов переобучения</div> </div> <!-- Карточка 4 --> <div class="slide12-card anim"> <div class="card-num">04</div> <div class="card-title">2029–2030</div> <div class="card-text">Масштабирование успешных решений; оценка достижения KPI</div> </div> <!-- Карточка 5 --> <div class="slide12-card anim"> <div class="card-num">05</div> <div class="card-title">2031–2036</div> <div class="card-text">Обновление стратегии по демографии, технологиям и инвестпортфелю</div> </div> </div> <!-- Вывод --> <div class="slide12-footer anim"> <div class="footer-line"></div> <div class="footer-text">Сроки управленческих действий — предлагаемый проект дорожной карты</div> </div> </div> </section>
 
-  <!-- 13 · ШАГИ (ОБНОВЛЕНО) -->
-  <section class="slide">
-    <div class="kicker anim">Слайд 13 · Ближайшие шаги</div>
-    <h1 class="anim">Первый управленческий цикл — <span class="hl">120 дней</span></h1>
-    <ul class="points">
-      <li class="hasnum anim"><span class="num">1-30</span>дней: актуализировать параметры единого центра кадровый решений, владельцев данных и перечень KPI</li>
-      <li class="hasnum anim"><span class="num">31-60</span>дней: сверить прогноз с крупнейшими работодателями и инвестициями, привлечь к участию в прогнозе широкий пул работодателей</li>
-      <li class="hasnum anim"><span class="num">61-120</span>дней: согласовать отраслевые планы, образовательный заказ и отчетность</li>
-    </ul>
-    <div class="takeaway anim"><span>Первый результат</span>Карта дефицитных профессий, перечень процессов с потенциалом снижения трудоемкости и распределение ответственности.</div>
-    <div class="takeaway anim" style="background:linear-gradient(120deg,rgba(90,169,255,.12),rgba(255,207,77,.08));border-color:rgba(90,169,255,.3);margin-top:8px">
-      <span>Решение к принятию</span>Одобрить кадровую стратегию региона и запустить межведомственный механизм ее реализации
-    </div>
-    <div class="takeaway anim" style="margin-top:8px"><span>Главный итог</span>Экономика растет не только за счет новых работников, но и за счет большей отдачи от каждого рабочего места.</div>
-  </section>
+  <!-- Слайд 13: Ближайшие шаги и результат --> <section class="slide"> <!-- Верхняя плашка (как у вас) --> <div class="hero-top" style="position:absolute;top:3vh;left:5vw;right:5vw;width:auto;z-index:10"> <div class="hero-top-left"> <span class="red-line"></span> <span class="top-title">ТУЛЬСКАЯ ОБЛАСТЬ / КАДРОВАЯ СТРАТЕГИЯ</span> </div> <div class="hero-top-right"> <span class="top-years">2026–2036</span> <img src="image/gerb.png" alt="Герб" class="top-gerb" onerror="this.style.display='none'"> </div> </div> <!-- Основной контент --> <div class="slide13-content"> <h1 class="anim">БЛИЖАЙШИЕ ШАГИ И РЕЗУЛЬТАТ</h1> <p class="sub anim">Первый управленческий цикл — 120 дней</p> <div class="slide13-grid"> <!-- Карточка 1 --> <div class="slide13-card anim"> <div class="card-num">01</div> <div class="card-title">1–30 дней</div> <div class="card-text">актуализировать параметры единого центра кадровых решений, владельцев данных и перечень KPI</div> </div> <!-- Карточка 2 --> <div class="slide13-card anim"> <div class="card-num">02</div> <div class="card-title">31–60 дней</div> <div class="card-text">сверить прогноз с крупнейшими работодателями и инвестпроектами, привлечь к участию в прогнозе широкий пул работодателей</div> </div> <!-- Карточка 3 --> <div class="slide13-card anim"> <div class="card-num">03</div> <div class="card-title">61–120 дней</div> <div class="card-text">согласовать отраслевые планы, образовательный заказ и отчетность</div> </div> <!-- Карточка 4 --> <div class="slide13-card anim"> <div class="card-num">04</div> <div class="card-title">Первый результат</div> <div class="card-text">карта дефицитных профессий, перечень процессов с потенциалом снижения трудоемкости и распределение ответственности</div> </div> <!-- Карточка 5 --> <div class="slide13-card anim"> <div class="card-num">05</div> <div class="card-title">Решение к принятию</div> <div class="card-text">одобрить кадровую стратегию региона и запустить межведомственный механизм ее реализации</div> </div> </div> <!-- Вывод --> <div class="slide13-footer anim"> <div class="footer-line"></div> <div class="footer-text">Главный итог: экономика растет не только за счет новых работников, но и за счет большей отдачи от каждого рабочего места.</div> </div> </div> </section>
 
 </div>
 
@@ -656,7 +999,10 @@
   } else {
     window.addEventListener('load', activate, {once:true});
   }
+  // === ИНИЦИАЛИЗАЦИЯ ПИРАМИД НА СЛАЙДЕ 4 ===
+function initPyramids() { const data = { labels: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84],  f2025: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], m2025: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],  f2032: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28], m2032: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29] }; function renderPyramid(container, fData, mData) { const barsContainer = container.querySelector('.pyramid-bars'); barsContainer.innerHTML = ''; const maxVal = Math.max(...fData, ...mData); fData.forEach((val, i) => { const barF = document.createElement('div'); barF.className = 'bar f'; barF.style.width = '0%'; barF.dataset.target = ((val / maxVal) * 100).toFixed(1) + '%'; barsContainer.appendChild(barF); const barM = document.createElement('div'); barM.className = 'bar m'; barM.style.width = '0%'; barM.dataset.target = ((mData[i] / maxVal) * 100).toFixed(1) + '%'; barsContainer.appendChild(barM); }); } const pyramids = document.querySelectorAll('.slide4-pyramids'); pyramids.forEach((pyramid, idx) => { if (idx === 0) renderPyramid(pyramid, data.f2025, data.m2025); else renderPyramid(pyramid, data.f2032, data.m2032); }); function animateBars() { document.querySelectorAll('.pyramid-bars .bar').forEach(bar => { if (bar.dataset.done) return; bar.dataset.done = '1'; setTimeout(() => { bar.style.width = bar.dataset.target; }, 100); }); }  const observer = new MutationObserver((mutations) => { mutations.forEach(mutation => { if (mutation.type === 'attributes' && mutation.attributeName === 'class') { const slide = mutation.target; if (slide.classList.contains('active') && slide.classList.contains('slide')) { setTimeout(animateBars, 100); } } }); }); document.querySelectorAll('.slide').forEach(slide => { observer.observe(slide, { attributes: true }); }); } document.addEventListener('DOMContentLoaded', initPyramids);
 })();
+function initSlide6Chart() { const bars = document.querySelectorAll('.slide6-chart .bar'); const areas = document.querySelectorAll('.slide6-chart .area'); const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } }); }, { threshold: 0.5 }); bars.forEach(bar => observer.observe(bar)); areas.forEach(area => observer.observe(area)); } document.addEventListener('DOMContentLoaded', initSlide6Chart);
 </script>
 </body>
 </html>
